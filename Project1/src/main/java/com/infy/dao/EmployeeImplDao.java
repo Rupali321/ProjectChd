@@ -1,9 +1,11 @@
 package com.infy.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +29,25 @@ public class EmployeeImplDao {
 			
 		}
 		return employee;
+	}
+	
+	public List<Employee> getAllEmployeeDetails() {
+		Query query=entityManager.createQuery("select c from EmployeeEntity c");
+		
+		List<EmployeeEntity> l1=query.getResultList();
+		List<Employee> l2=new ArrayList<Employee>();
+		
+		if(!l1.isEmpty()) {
+			for(EmployeeEntity e2:l1) {
+				Employee e1=new Employee();
+				e1.setEmployeeId(e2.getEmployeeId());
+				e1.setMobileno(e2.getMobileNo());
+				e1.setName(e2.getName());
+				
+				l2.add(e1);
+			}
+		}
+		
+		return l2;
 	}
 }
