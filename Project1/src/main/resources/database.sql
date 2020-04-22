@@ -3,7 +3,9 @@ CREATE DATABASE Employee_DB;
 USE  Employee_DB;
 
 
-create table Employee( employee_id number(6) primary key, name varchar2(25) not null, mobile_no number(10) not null); 
+create table Employee(employee_id number(6) primary key, name varchar2(25) not null, mobile_no varchar2(10) not null); 
+
+CREATE SEQUENCE hibernate_sequence;
 
 insert into Employee values(2001,'Markel',8765476548);
 insert into Employee values(2002,'Chris', 9696459375);

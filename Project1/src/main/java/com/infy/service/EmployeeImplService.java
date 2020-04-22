@@ -14,17 +14,12 @@ public class EmployeeImplService {
 	@Autowired
 	private EmployeeImplDao employeeImplDao ;
 
-	
-	
-	public Employee getEmployee (String employeeId) throws Exception
+	public Employee getEmployee(Integer employeeId) throws Exception
 	{
-		Employee employeefromDB=null;
-		employeefromDB=employeeImplDao.getEmployeeDetail(employeeId);
+		Employee employeefromDB=employeeImplDao.getEmployeeDetail(employeeId);
 		if(employeefromDB==null) {
 			throw new Exception("EmployeeImplService.NO_EMPLOYEE");
-			
 		}
-		
 		return employeefromDB;
 	}
 

@@ -7,27 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name="Employee")
 public class EmployeeEntity {
 	
-	
-	
 		@Id
-		@JoinColumn(name="employee_Id")	
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private String employeeId;
-		@JoinColumn(name="name")
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		private Integer employeeId;
 		private String name;
-		@JoinColumn(name="mobile_no")
-		private String mobileno;
+		private String mobileNo;
 		
-		public String getEmployeeId() {
+		public Integer getEmployeeId() {
 			return employeeId;
 		}
-		public void setEmployeeId(String employeeId) {
+		public void setEmployeeId(Integer employeeId) {
 			this.employeeId = employeeId;
 		}
 		public String getName() {
@@ -36,12 +29,13 @@ public class EmployeeEntity {
 		public void setName(String name) {
 			this.name = name;
 		}
-		public String getMobileno() {
-			return mobileno;
+		public String getMobileNo() {
+			return mobileNo;
 		}
-		public void setMobileno(String mobileno) {
-			this.mobileno = mobileno;
+		public void setMobileNo(String mobileNo) {
+			this.mobileNo = mobileNo;
 		}
+		
 		
 		
 }

@@ -26,7 +26,7 @@ public class EmployeeImplAPI {
 	@Autowired
 	private Environment environment;
 	 @GetMapping(value = "getEmployee/{employeeId}")
-	   public ResponseEntity<Employee> getEmployee(@PathVariable("employeeId") String employeeId) throws Exception {
+	   public ResponseEntity<Employee> getEmployee(@PathVariable("employeeId") Integer employeeId) throws Exception {
 	 
 	       try
 	       {

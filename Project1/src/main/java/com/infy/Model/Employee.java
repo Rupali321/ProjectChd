@@ -3,15 +3,14 @@ package com.infy.Model;
 
 public class Employee {
 	
-
-	private String employeeId;
+	private Integer employeeId;
 	private String name;
-	private String mobileno;
+	private String mobileNo;
 	
-	public String getEmployeeId() {
+	public Integer getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 	public String getName() {
@@ -21,9 +20,9 @@ public class Employee {
 		this.name = name;
 	}
 	public String getMobileno() {
-		return mobileno;
+		return mobileNo;
 	}
 	public void setMobileno(String mobileno) {
-		this.mobileno = mobileno;
+		this.mobileNo = mobileno;
 	}
 }
