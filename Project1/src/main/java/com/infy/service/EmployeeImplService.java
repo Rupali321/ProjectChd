@@ -33,4 +33,29 @@ public class EmployeeImplService {
 		}
 		return employeefromDB;
 	}
+	public Employee updateEmployee(Integer employeeId,Employee employeeDetails) throws Exception
+	{
+		Employee employeefromDB=employeeImplDao.getEmployeeDetail(employeeId);
+		if(employeefromDB!=null) {
+			employeeImplDao.updateEmployee(employeeId,employeeDetails);}
+		else if (employeefromDB==null)
+			{
+				throw new Exception("EmployeeImplService.NO_EMPLOYEE");
+			}
+		
+		return employeefromDB;
+	}
+	
+	public Employee deleteEmployee(Integer employeeId) throws Exception
+	{
+		Employee employeefromDB=employeeImplDao.getEmployeeDetail(employeeId);
+		if(employeefromDB!=null) {
+			employeeImplDao.deleteEmployee(employeeId);}
+		else if (employeefromDB==null)
+			{
+				throw new Exception("EmployeeImplService.NO_EMPLOYEE");
+			}
+		
+		return employeefromDB;
+	}
 }

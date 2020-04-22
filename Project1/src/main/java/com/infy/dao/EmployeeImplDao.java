@@ -42,12 +42,20 @@ public class EmployeeImplDao {
 				Employee e1=new Employee();
 				e1.setEmployeeId(e2.getEmployeeId());
 				e1.setMobileno(e2.getMobileNo());
-				e1.setName(e2.getName());
-				
+				e1.setName(e2.getName());				
 				l2.add(e1);
 			}
 		}
-		
 		return l2;
 	}
+	
+	public void updateEmployee(Integer employeeId, Employee employeeDetails) throws Exception
+	{		EmployeeEntity employeeEntity=entityManager.find(EmployeeEntity.class, employeeId);
+				employeeEntity.setMobileNo(employeeDetails.getMobileno());	
+	}
+	public void deleteEmployee(Integer employeeId) throws Exception
+	{		EmployeeEntity employeeEntity=entityManager.find(EmployeeEntity.class, employeeId);
+				entityManager.remove(employeeEntity);
+	}
+	
 }
