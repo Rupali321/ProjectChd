@@ -3,7 +3,7 @@ CREATE DATABASE Employee_DB;
 USE  Employee_DB;
 
 
-create table Employee(employee_id number(6) primary key, name varchar2(25) not null, mobile_no varchar2(10) not null); 
+create table Employee(employee_id integer(6) primary key, name varchar(25) not null, mobile_no varchar(10) not null); 
 
 CREATE SEQUENCE hibernate_sequence;
 
@@ -14,4 +14,4 @@ insert into Employee values(2004,'Alex',9140814428);
 insert into Employee values(2005,'Bernard',7941123214);
 insert into Employee values(2006,'Michel',8941123214);
 
-select * from employee
+select * from Employee;
