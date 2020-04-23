@@ -58,4 +58,16 @@ public class EmployeeImplService {
 		
 		return employeefromDB;
 	}
+	public Integer createEmployee(Employee employeeDetails) throws Exception
+	{
+		return employeeImplDao.createEmployee(employeeDetails);
+//		if(employeefromDB!=null) {
+//			employeeImplDao.updateEmployee(employeeId,employeeDetails);}
+//		else if (employeefromDB==null)
+//			{
+//				throw new Exception("EmployeeImplService.NO_EMPLOYEE");
+//			}
+//		
+//		return employeefromDB;
+	}
 }

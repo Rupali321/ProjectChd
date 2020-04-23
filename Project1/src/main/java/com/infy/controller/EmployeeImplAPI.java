@@ -59,11 +59,11 @@ public class EmployeeImplAPI {
 		}
 	}
 	
-	@PostMapping(value = "/employees/{employeeId}")
+	@PostMapping(value = "/updateEmployees/{employeeId}")
 	public ResponseEntity<String> updateEmployee(@PathVariable Integer employeeId, @Valid @RequestBody Employee employeeDetails){
 		try {
 		 Employee employee = employeeImplService.updateEmployee(employeeId,employeeDetails);
-			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.UPDATE_ADDRESS_SUCCESS");
+			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.UPDATED_SUCCESSFULLY");
 
 			return new ResponseEntity<String>(modificationSuccessMsg, HttpStatus.OK);
 
@@ -73,7 +73,7 @@ public class EmployeeImplAPI {
 		}
 
 	}
-	@DeleteMapping(value = "/deleteemployees/{employeeId}")
+	@DeleteMapping(value = "/deleteEmployees/{employeeId}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable Integer employeeId){
 		try {
 		 Employee employee = employeeImplService.deleteEmployee(employeeId);
@@ -88,5 +88,19 @@ public class EmployeeImplAPI {
 
 	}
 	
+	@PostMapping(value = "/createEmployees")
+	public ResponseEntity<String> CreateEmployee( @RequestBody Employee employeeDetails){
+		try {
+		Integer i=employeeImplService.createEmployee(employeeDetails);
+			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.employee_Created_SUCCESSFULY");
 
-}
+			return new ResponseEntity<String>(modificationSuccessMsg+" with id "+i, HttpStatus.OK);
+
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+
+	
+
+}}

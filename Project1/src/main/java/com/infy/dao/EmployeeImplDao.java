@@ -57,5 +57,18 @@ public class EmployeeImplDao {
 	{		EmployeeEntity employeeEntity=entityManager.find(EmployeeEntity.class, employeeId);
 				entityManager.remove(employeeEntity);
 	}
+
+	public Integer createEmployee(Employee employeeDetails) {
+		// TODO Auto-generated method stub
+		EmployeeEntity employeeEntity=new EmployeeEntity();
+		employeeEntity.setMobileNo((employeeDetails.getMobileno()));;
+		employeeEntity.setName(employeeDetails.getName());
+		entityManager.persist(employeeEntity);
+		//employeeEntity.setEmployeeId(e2.getEmployeeId());
+		System.out.println(employeeEntity.getEmployeeId());
+      return employeeEntity.getEmployeeId();
+		
+		
+	}
 	
 }

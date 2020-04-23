@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class EmployeeEntity {
 	
 		@Id
-		@GeneratedValue(strategy=GenerationType.AUTO)
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Integer employeeId;
 		private String name;
 		private String mobileNo;
@@ -20,15 +20,19 @@ public class EmployeeEntity {
 		public Integer getEmployeeId() {
 			return employeeId;
 		}
+		
 		public void setEmployeeId(Integer employeeId) {
 			this.employeeId = employeeId;
 		}
+		
 		public String getName() {
 			return name;
 		}
+		
 		public void setName(String name) {
 			this.name = name;
 		}
+		
 		public String getMobileNo() {
 			return mobileNo;
 		}
