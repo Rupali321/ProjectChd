@@ -26,7 +26,8 @@ public class EmployeeImplDao {
 			employee.setEmployeeId(employeeId);
 			employee.setName(employeeEntity.getName());
 			employee.setMobileno(employeeEntity.getMobileNo());
-			
+			employee.setLastName(employeeEntity.getLastName());
+			employee.setEmailId(employeeEntity.getEmailId());
 		}
 		return employee;
 	}
@@ -42,7 +43,9 @@ public class EmployeeImplDao {
 				Employee e1=new Employee();
 				e1.setEmployeeId(e2.getEmployeeId());
 				e1.setMobileno(e2.getMobileNo());
-				e1.setName(e2.getName());				
+				e1.setName(e2.getName());
+				e1.setEmailId(e2.getEmailId());
+				e1.setLastName(e2.getLastName());
 				l2.add(e1);
 			}
 		}

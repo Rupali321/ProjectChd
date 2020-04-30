@@ -15,8 +15,26 @@ public class EmployeeEntity {
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Integer employeeId;
 		private String name;
+		private String lastName;
+		private String emailId;
 		private String mobileNo;
 		
+		public String getLastName() {
+			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+
+		public String getEmailId() {
+			return emailId;
+		}
+
+		public void setEmailId(String emailId) {
+			this.emailId = emailId;
+		}
+
 		public Integer getEmployeeId() {
 			return employeeId;
 		}

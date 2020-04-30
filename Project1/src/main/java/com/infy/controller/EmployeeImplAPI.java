@@ -22,7 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.infy.Model.Employee;
 import com.infy.service.EmployeeImplService;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("EmployeeAPI")
 public class EmployeeImplAPI {
@@ -33,7 +33,7 @@ public class EmployeeImplAPI {
 	@Autowired
 	private Environment environment;
 
-	@GetMapping(value = "getEmployee/{employeeId}")
+	@PostMapping(value = "getEmployee/{employeeId}")
 	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId) throws Exception {
 
 		try {
