@@ -3,7 +3,7 @@ CREATE DATABASE Employee_DB;
 USE  Employee_DB;
 
 
-create table Employee(employee_id integer(6) primary key, name varchar(25) not null, 
+create table Employee(employee_id integer(6) primary key AUTO_INCREMENT, name varchar(25) not null, 
 last_name varchar(20), email_id varchar(20), mobile_no varchar(10) not null); 
 
 CREATE SEQUENCE hibernate_sequence;

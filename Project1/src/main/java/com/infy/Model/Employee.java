@@ -28,7 +28,6 @@ public class Employee {
 		this.mobileNo = mobileNo;
 	}
 	
-	
 	public Integer getEmployeeId() {
 		return employeeId;
 	}
@@ -41,10 +40,6 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getMobileno() {
-		return mobileNo;
-	}
-	public void setMobileno(String mobileNo) {
-		this.mobileNo = mobileNo;
-	}
+
+	
 }

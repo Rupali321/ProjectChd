@@ -34,10 +34,25 @@ public class EmployeeImplService {
 		return employeefromDB;
 	}
 	public Employee updateEmployee(Integer employeeId,Employee employeeDetails) throws Exception
-	{
+	{Employee emp1=null;
+	 Employee emp2=null;
 		Employee employeefromDB=employeeImplDao.getEmployeeDetail(employeeId);
+		emp1=employeeImplDao.getEmployeeEmailId(employeeDetails.getEmailId());
+		emp2=employeeImplDao.getEmployeeMobile(employeeDetails.getMobileNo());
+
 		if(employeefromDB!=null) {
-			employeeImplDao.updateEmployee(employeeId,employeeDetails);}
+			if(emp1!=null) {
+				throw new Exception("EmployeeImplService.EMAILID_ALREADY_EXISTS");
+
+			}
+			else if(emp2!=null)
+			{
+				throw new Exception("EmployeeImplService.PHONE_NO_ALREADY_EXISTS");
+			}
+			else {
+			employeeImplDao.updateEmployee(employeeId,employeeDetails);
+			}
+			}
 		else if (employeefromDB==null)
 			{
 				throw new Exception("EmployeeImplService.NO_EMPLOYEE");
@@ -59,8 +74,28 @@ public class EmployeeImplService {
 		return employeefromDB;
 	}
 	public Integer createEmployee(Employee employeeDetails) throws Exception
-	{
-		return employeeImplDao.createEmployee(employeeDetails);
+	{	System.out.println("entering service class");
+	Employee emp1=null;
+	Employee emp2=null;
+	emp1=employeeImplDao.getEmployeeEmailId(employeeDetails.getEmailId());
+		emp2=employeeImplDao.getEmployeeMobile(employeeDetails.getMobileNo());
+
+		
+			if(emp1!=null) {
+				System.out.println("entering loop email check");
+			throw new Exception("EmployeeImplService.EMAILID_ALREADY_EXISTS");
+
+		}
+		else if(emp2!=null)
+			{
+				throw new Exception("EmployeeImplService.PHONE_NO_ALREADY_EXISTS");
+				}
+			else 
+			{
+				return employeeImplDao.createEmployee(employeeDetails);	
+			}
+		
+		
 //		if(employeefromDB!=null) {
 //			employeeImplDao.updateEmployee(employeeId,employeeDetails);}
 //		else if (employeefromDB==null)
@@ -69,5 +104,6 @@ public class EmployeeImplService {
 //			}
 //		
 //		return employeefromDB;
+	 }
 	}
-}
+

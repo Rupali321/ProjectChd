@@ -61,7 +61,9 @@ public class EmployeeImplAPI {
 	
 	@PostMapping(value = "/updateEmployees/{employeeId}")
 	public ResponseEntity<String> updateEmployee(@PathVariable Integer employeeId, @Valid @RequestBody Employee employeeDetails){
+		
 		try {
+			
 		 Employee employee = employeeImplService.updateEmployee(employeeId,employeeDetails);
 			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.UPDATED_SUCCESSFULLY");
 
