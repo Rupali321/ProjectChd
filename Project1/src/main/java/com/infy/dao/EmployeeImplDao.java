@@ -32,6 +32,7 @@ public class EmployeeImplDao {
 		return employee;
 	}
 	
+	
 	public List<Employee> getAllEmployeeDetails() {
 		Query query=entityManager.createQuery("select c from EmployeeEntity c");
 		
@@ -52,9 +53,12 @@ public class EmployeeImplDao {
 		return l2;
 	}
 	
+	
 	public void updateEmployee(Integer employeeId, Employee employeeDetails) throws Exception
 	{		EmployeeEntity employeeEntity=entityManager.find(EmployeeEntity.class, employeeId);
 				employeeEntity.setMobileNo(employeeDetails.getMobileNo());	
+				employeeEntity.setEmailId(employeeDetails.getEmailId());	
+
 	}
 	public void deleteEmployee(Integer employeeId) throws Exception
 	{		EmployeeEntity employeeEntity=entityManager.find(EmployeeEntity.class, employeeId);
@@ -69,7 +73,7 @@ public class EmployeeImplDao {
 						Employee employee=null;
 						if(!employeeEntity.isEmpty())
 						{employee=new Employee();
-					employee.setMobileNo(employeeEntity.get(1).getMobileNo());	
+					employee.setMobileNo(employeeEntity.get(0).getMobileNo());	
 						}
 					//System.out.println("get email");	
 			return employee;
@@ -79,13 +83,23 @@ public class EmployeeImplDao {
 	{
 	Query query=entityManager.createQuery("select c from EmployeeEntity c where c.emailId= '"+emailId+"'",EmployeeEntity.class);
 	List<EmployeeEntity> employeeEntity=query.getResultList();	
-	{
-					Employee employee=null;
-					if(!employeeEntity.isEmpty())
-					{employee=new Employee();
-				employee.setEmailId(employeeEntity.get(1).getEmailId());	
+	
+					Employee employee=null;{
+						
+					if(!employeeEntity.isEmpty()) {
+//					 for (EmployeeEntity employeeEntity2 : employeeEntity) {
+//						System.out.println(employeeEntity2.getEmailId());
+//					}
+						System.out.println("get email1");	
+						employee=new Employee();
+//						System.out.println("get email2");	
+//						System.out.println(employeeEntity.get(0).getEmailId());
+//						System.out.println("get email3");	
+
+				employee.setEmailId(employeeEntity.get(0).getEmailId());
+
 					}
-				//System.out.println("get email");	
+				//System.out.println("get email4");	
 		return employee;
 	}}
 	

@@ -49,7 +49,7 @@ public class EmployeeImplAPI {
 	@GetMapping(value = "getAllEmployees")
 	public ResponseEntity<List<Employee>> getEmployeeDetails() throws Exception {
 
-		try {
+		try {System.out.println("get all called");
 			List<Employee> employee = employeeImplService.getEmployeeDetails();
 			return new ResponseEntity<List<Employee>>(employee, HttpStatus.OK);
 
@@ -59,11 +59,12 @@ public class EmployeeImplAPI {
 		}
 	}
 	
-	@PostMapping(value = "/updateEmployees/{employeeId}")
+	@PutMapping(value = "/updateEmployees/{employeeId}")
 	public ResponseEntity<String> updateEmployee(@PathVariable Integer employeeId, @Valid @RequestBody Employee employeeDetails){
 		
-		try {
-			
+		try {System.out.println("hello update");
+			System.out.println("updated called"+employeeDetails.getEmailId()+employeeDetails.getMobileNo()+
+					employeeDetails.getEmployeeId());
 		 Employee employee = employeeImplService.updateEmployee(employeeId,employeeDetails);
 			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.UPDATED_SUCCESSFULLY");
 
@@ -93,6 +94,7 @@ public class EmployeeImplAPI {
 	@PostMapping(value = "/createEmployees")
 	public ResponseEntity<String> CreateEmployee( @RequestBody Employee employeeDetails){
 		try {
+			System.out.println("created called");
 		Integer i=employeeImplService.createEmployee(employeeDetails);
 			String modificationSuccessMsg=environment.getProperty("EmployeeAPI.employee_Created_SUCCESSFULY");
 

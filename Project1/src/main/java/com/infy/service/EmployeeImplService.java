@@ -42,6 +42,7 @@ public class EmployeeImplService {
 
 		if(employeefromDB!=null) {
 			if(emp1!=null) {
+				System.out.println("hello");
 				throw new Exception("EmployeeImplService.EMAILID_ALREADY_EXISTS");
 
 			}
@@ -79,8 +80,9 @@ public class EmployeeImplService {
 	Employee emp2=null;
 	emp1=employeeImplDao.getEmployeeEmailId(employeeDetails.getEmailId());
 		emp2=employeeImplDao.getEmployeeMobile(employeeDetails.getMobileNo());
+System.out.println(emp1);
+System.out.println(emp2);
 
-		
 			if(emp1!=null) {
 				System.out.println("entering loop email check");
 			throw new Exception("EmployeeImplService.EMAILID_ALREADY_EXISTS");
